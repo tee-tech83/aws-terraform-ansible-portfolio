@@ -1,0 +1,64 @@
+- name: Configure Tee Felix portfolio web server
+  hosts: web
+  become: true
+
+  tasks:
+    - name: Update apt package index
+      apt:
+        update_cache: yes
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Remove default Nginx page
+      file:
+        path: /var/www/html/index.nginx-debian.html
+        state: absent
+
+    - name: Create images directory
+      file:
+        path: /var/www/html/images
+        state: directory
+        owner: www-data
+        group: www-data
+        mode: "0755"
+
+    - name: Copy index.html
+      copy:
+        src: ../website/index.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: "0644"
+
+    - name: Copy style.css
+      copy:
+        src: ../website/style.css
+        dest: /var/www/html/style.css
+        owner: www-data
+        group: www-data
+        mode: "0644"
+
+    - name: Copy script.js
+      copy:
+        src: ../website/script.js
+        dest: /var/www/html/script.js
+        owner: www-data
+        group: www-data
+        mode: "0644"
+
+    - name: Copy profile image
+      copy:
+        src: ../website/images/tee-felix.jpg
+        dest: /var/www/html/images/tee-felix.jpg
+        owner: www-data
+        group: www-data
+        mode: "0644"
+
+    - name: Ensure Nginx is started and enabled
+      service:
+        name: nginx
+        state: started
+        enabled: true
