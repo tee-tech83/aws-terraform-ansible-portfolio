@@ -1,353 +1,1922 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tunrayo Felix | AWS Cloud Engineer</title>
-  <meta
-    name="description"
-    content="Tunrayo Felix - AWS Cloud Engineer, DevOps Engineer, Terraform, Docker, Kubernetes, CI/CD Portfolio"
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Tunrayo Felix Olorunseyin - AWS Cloud and DevOps Engineer specializing in AWS, Terraform, Ansible, Docker, Kubernetes, CI/CD, ECS and EKS."
+    >
+
+    <meta
+        name="keywords"
+        content="AWS Cloud Engineer, DevOps Engineer, Terraform, Ansible, Docker, Kubernetes, Jenkins, GitHub Actions, ECS, EKS, CloudWatch"
+    >
+
+    <meta
+        name="author"
+        content="Tunrayo Felix Olorunseyin"
+    >
+
+    <title>
+        Tunrayo Felix Olorunseyin | AWS Cloud & DevOps Engineer
+    </title>
+
+    <style>
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                "Segoe UI",
+                Arial,
+                Helvetica,
+                sans-serif;
+            color: #eaf2ff;
+            background:
+                linear-gradient(
+                    180deg,
+                    #020617 0%,
+                    #050b1d 45%,
+                    #07132b 100%
+                );
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .container {
+            width: min(1180px, 90%);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            padding: 105px 0;
+        }
+
+        .section-alt {
+            background: rgba(15, 23, 42, 0.52);
+            border-top: 1px solid rgba(148, 163, 184, 0.08);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #67e8f9;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin: 0 0 16px;
+            color: #ffffff;
+            font-size: clamp(2.1rem, 4vw, 3.4rem);
+            line-height: 1.13;
+        }
+
+        .section-intro {
+            max-width: 760px;
+            margin: 0 0 48px;
+            color: #aebdd0;
+            font-size: 1.04rem;
+            line-height: 1.8;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(2, 6, 23, 0.94);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+            backdrop-filter: blur(16px);
+        }
+
+        .nav {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            flex-shrink: 0;
+            color: #67e8f9;
+            font-size: 1.7rem;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #c7d2e1;
+            font-size: 0.92rem;
+            font-weight: 650;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #67e8f9;
+        }
+
+        .hero {
+            position: relative;
+            min-height: calc(100vh - 78px);
+            display: flex;
+            align-items: center;
+            padding: 90px 0 100px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -250px;
+            right: -180px;
+            width: 620px;
+            height: 620px;
+            border-radius: 50%;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(34, 211, 238, 0.15),
+                    transparent 68%
+                );
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns:
+                minmax(0, 1.28fr)
+                minmax(300px, 0.72fr);
+            gap: 75px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            margin: 8px 0 24px;
+            color: #ffffff;
+            font-size: clamp(4rem, 7vw, 6.4rem);
+            line-height: 0.98;
+            letter-spacing: -0.055em;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: #dbeafe;
+        }
+
+        .hero-subtitle {
+            margin: 0 0 25px;
+            color: #f8fafc;
+            font-size: clamp(1.4rem, 2.2vw, 2rem);
+            font-weight: 750;
+            line-height: 1.35;
+        }
+
+        .hero-description {
+            max-width: 760px;
+            margin: 0 0 32px;
+            color: #bdc9da;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            min-height: 54px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 25px;
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            font-weight: 800;
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            color: #062536;
+            background:
+                linear-gradient(
+                    135deg,
+                    #22d3ee,
+                    #38bdf8
+                );
+            border-color: transparent;
+        }
+
+        .btn-secondary {
+            color: #ffffff;
+            background: rgba(15, 23, 42, 0.82);
+        }
+
+        .btn-secondary:hover {
+            border-color: #38bdf8;
+        }
+
+        .hero-skills {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    4,
+                    minmax(0, 1fr)
+                );
+            gap: 14px;
+        }
+
+        .hero-skill {
+            min-width: 0;
+            padding: 18px;
+            border-radius: 16px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.16);
+        }
+
+        .hero-skill strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #67e8f9;
+            font-size: 1rem;
+        }
+
+        .hero-skill span {
+            color: #9fb0c5;
+            font-size: 0.82rem;
+            line-height: 1.4;
+        }
+
+        .portrait {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .portrait-frame {
+            position: relative;
+            width: min(100%, 390px);
+            padding: 8px;
+            border-radius: 30px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(34, 211, 238, 0.5),
+                    rgba(59, 130, 246, 0.12)
+                );
+            box-shadow:
+                0 30px 80px
+                rgba(0, 0, 0, 0.4);
+        }
+
+        .portrait img {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 23px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+            gap: 28px;
+        }
+
+        .about-card {
+            min-width: 0;
+            padding: 40px 42px;
+            background: rgba(15, 23, 42, 0.82);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            border-radius: 24px;
+        }
+
+        .about-card h3 {
+            margin: 0 0 20px;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .about-card p {
+            margin: 0 0 16px;
+            color: #d3deeb;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
+            gap: 24px;
+        }
+
+        .skill-card {
+            min-width: 0;
+            padding: 30px 32px;
+            background: #111827;
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            border-radius: 22px;
+        }
+
+        .skill-card h3 {
+            margin: 0 0 19px;
+            color: #ffffff;
+            font-size: 1.27rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 7px 12px;
+            color: #dbeafe;
+            background: rgba(34, 211, 238, 0.08);
+            border: 1px solid rgba(34, 211, 238, 0.15);
+            border-radius: 999px;
+            font-size: 0.86rem;
+            line-height: 1.35;
+        }
+
+        .experience-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .experience-card {
+            position: relative;
+            width: 100%;
+            min-width: 0;
+            padding: 42px 52px 44px 56px;
+            border-radius: 24px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(17, 24, 39, 0.98),
+                    rgba(15, 23, 42, 0.9)
+                );
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 32px;
+            bottom: 32px;
+            width: 5px;
+            border-radius:
+                0
+                10px
+                10px
+                0;
+            background:
+                linear-gradient(
+                    180deg,
+                    #22d3ee,
+                    #3b82f6
+                );
+        }
+
+        .experience-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .experience-card h3 {
+            margin: 0 0 5px;
+            color: #ffffff;
+            font-size: 1.55rem;
+            line-height: 1.3;
+        }
+
+        .company {
+            color: #7dd3fc;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .date {
+            flex-shrink: 0;
+            padding: 7px 12px;
+            border-radius: 999px;
+            color: #bfdbfe;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+
+        .experience-card ul {
+            padding-left: 23px;
+        }
+
+        .experience-card li {
+            padding-left: 4px;
+            color: #dce6f2;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .experience-card li::marker {
+            color: #22d3ee;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .project-card {
+            position: relative;
+            width: 100%;
+            min-width: 0;
+            padding: 42px 52px 44px 56px;
+            border-radius: 24px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #111827,
+                    #121c31
+                );
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 32px;
+            bottom: 32px;
+            width: 5px;
+            border-radius:
+                0
+                10px
+                10px
+                0;
+            background:
+                linear-gradient(
+                    180deg,
+                    #22d3ee,
+                    #60a5fa
+                );
+        }
+
+        .project-number {
+            display: block;
+            margin-bottom: 9px;
+            color: #67e8f9;
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+        }
+
+        .project-card h3 {
+            margin: 0 0 10px;
+            color: #ffffff;
+            font-size: 1.55rem;
+            line-height: 1.35;
+        }
+
+        .project-tech {
+            margin: 0 0 20px;
+            color: #93c5fd;
+            font-size: 0.96rem;
+            font-weight: 700;
+            line-height: 1.65;
+        }
+
+        .project-summary {
+            margin: 0 0 18px;
+            color: #d8e3ef;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .project-card ul {
+            padding-left: 23px;
+        }
+
+        .project-card li {
+            padding-left: 4px;
+            color: #dce6f2;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .project-card li::marker {
+            color: #22d3ee;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
+            gap: 24px;
+        }
+
+        .education-card {
+            min-width: 0;
+            padding: 32px 34px;
+            min-height: 210px;
+            border-radius: 22px;
+            background: #111827;
+            border: 1px solid rgba(148, 163, 184, 0.16);
+        }
+
+        .education-card h3 {
+            margin: 0 0 17px;
+            color: #ffffff;
+            font-size: 1.25rem;
+            line-height: 1.4;
+        }
+
+        .education-card p {
+            margin: 0 0 6px;
+            color: #cad6e5;
+            line-height: 1.65;
+        }
+
+        .status {
+            color: #67e8f9 !important;
+            font-weight: 800;
+        }
+
+        .contact-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 65px 60px;
+            text-align: center;
+            border-radius: 28px;
+            background:
+                linear-gradient(
+                    145deg,
+                    #111827,
+                    #0f172a
+                );
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            box-shadow:
+                0
+                30px
+                75px
+                rgba(0, 0, 0, 0.28);
+        }
+
+        .contact-card h2 {
+            margin: 0 0 23px;
+            color: #ffffff;
+            font-size: clamp(2.8rem, 5vw, 4.6rem);
+            line-height: 1.08;
+        }
+
+        .contact-card p {
+            max-width: 760px;
+            margin: 0 auto 20px;
+            color: #cbd7e5;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            background: #020617;
+        }
+
+        footer p {
+            margin: 0;
+            text-align: center;
+            color: #8090a6;
+            font-size: 0.9rem;
+        }
+
+        .about-card,
+        .skill-card,
+        .experience-card,
+        .project-card,
+        .education-card {
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .about-card:hover,
+        .skill-card:hover,
+        .experience-card:hover,
+        .project-card:hover,
+        .education-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(34, 211, 238, 0.42);
+            box-shadow:
+                0
+                20px
+                55px
+                rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 1050px) {
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 55px;
+            }
+
+            .portrait {
+                justify-content: flex-start;
+            }
+
+            .portrait-frame {
+                width: 350px;
+            }
+
+            .skills-grid,
+            .education-grid {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+            }
+
+            .hero-skills {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+            }
+        }
+
+        @media (max-width: 780px) {
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 16px 0;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+                gap: 12px 18px;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-card,
+            .project-card {
+                padding: 34px 34px 36px 42px;
+            }
+
+            .experience-top {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .contact-card {
+                padding: 48px 30px;
+            }
+        }
+
+        @media (max-width: 560px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                font-size: clamp(3rem, 14vw, 4.5rem);
+            }
+
+            .hero-buttons,
+            .contact-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hero-skills {
+                grid-template-columns: 1fr;
+            }
+
+            .portrait-frame {
+                width: 100%;
+            }
+
+            .about-card,
+            .skill-card,
+            .education-card {
+                padding: 27px 25px;
+            }
+
+            .experience-card,
+            .project-card {
+                padding: 30px 25px 32px 34px;
+            }
+
+            .experience-card h3,
+            .project-card h3 {
+                font-size: 1.32rem;
+            }
+
+            .nav-links {
+                display: grid;
+                grid-template-columns:
+                    repeat(
+                        3,
+                        auto
+                    );
+            }
+        }
+
+    </style>
 </head>
+
+
 <body>
-  <div class="cursor-glow" id="cursorGlow"></div>
 
-  <header class="header">
-    <div class="container nav">
-      <a href="#home" class="logo">Tunrayo Felix</a>
 
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <header>
 
-  <section id="home" class="hero">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <h1>
-          AWS Cloud &amp; DevOps Engineer
-          <span class="gradient-text">Tunrayo Felix</span>
-        </h1>
+        <div class="container nav">
 
-        <p class="hero-description">
-    AWS Cloud and DevOps Engineer with hands-on experience building cloud infrastructure,
-    automating deployments, and implementing DevOps solutions through real-world projects
-    and cloud lab environments.
-</p>
+            <a
+                href="#home"
+                class="logo"
+            >
+                TF
+            </a>
 
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary interactive">View Projects</a>
-          <a href="#contact" class="btn btn-secondary interactive">Contact Me</a>
+
+            <nav class="nav-links">
+
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+
+            </nav>
+
         </div>
 
-        <div class="hero-contact-card interactive">
-          <div class="hero-contact-item">
-            <span class="contact-icon">📞</span>
-            <span>417-255-5158</span>
-          </div>
+    </header>
 
-          <div class="hero-contact-item">
-            <span class="contact-icon">✉️</span>
-            <span>tunrayofelixo@gmail.com</span>
-          </div>
 
-          <div class="hero-contact-item">
-            <span class="contact-icon">📍</span>
-            <span>McKinney, TX</span>
-          </div>
-        </div>
+    <main>
 
-        <div class="stats-grid">
-          <div class="stat-card interactive">
-            <p class="stat-label">Projects Completed</p>
-<h3>4</h3>
-          </div>
 
-          <div class="stat-card interactive">
-            <p class="stat-label">Core Focus</p>
-<h3>Cloud Automation</h3>
-          </div>
+        <section
+            id="home"
+            class="hero"
+        >
 
-          <div class="stat-card interactive">
-            <p class="stat-label">Specialty</p>
-<h3>AWS &amp; DevOps</h3>
-          </div>
-        </div>
-      </div>
+            <div class="container hero-grid">
 
-      <div class="hero-image-wrap">
-        <div class="hero-image interactive">
-          <img src="images/tee-felix.jpg" alt="Tunrayo Felix" />
-        </div>
 
-        <div class="hero-skill-pill interactive">
-          Terraform • Docker • Kubernetes • CI/CD • Cloud Automation
-        </div>
-      </div>
-    </div>
-  </section>
+                <div>
 
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section-heading">
-        <p class="section-tag">About</p>
-        <h2>AWS Cloud &amp; DevOps Engineer</h2>
-      </div>
+                    <span class="eyebrow">
+                        AWS Cloud &amp; DevOps Engineer
+                    </span>
 
-      <div class="about-grid">
-        <div class="about-card interactive">
-          <h3>Who I Am</h3>
-          <p>
-<p>
-Hello, I'm Tunrayo Felix, an AWS Cloud and DevOps Engineer with hands-on experience designing cloud infrastructure, automating deployments, and implementing DevOps solutions through real-world projects and cloud lab environments.
-</p>
- <p>
-After completing intensive AWS and DevOps training, I designed and deployed multiple end-to-end projects involving cloud migration, infrastructure as code (IaC), CI/CD pipelines, containerization, and cloud automation using AWS services and DevOps tools.
-</p>
 
-<p>
-I am actively seeking opportunities in AWS Cloud Engineering, DevOps Engineering, Cloud Operations, and Infrastructure Automation where I can contribute my skills, continue learning, and help organizations build reliable and scalable cloud solutions.
-</p>
-        </div>
+                    <h1>
+                        Tunrayo Felix
+                        <span>
+                            Olorunseyin
+                        </span>
+                    </h1>
 
-        <div class="about-card interactive">
-          <h3>Featured AWS &amp; DevOps Projects</h3>
-          <div class="about-points">
-            <div>AWS WordPress &amp; MySQL Migration Project</div>
-            <div>AWS Auto Scaling &amp; Load Balancer Project</div>
-            <div>GitHub Actions CI/CD Pipeline on AWS ECS</div>
-            <div>Jenkins CI/CD Pipeline with Docker &amp; AWS</div>
-            <div>Infrastructure as Code with Terraform & Ansible</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="skills" class="section section-dark">
-    <div class="container">
-      <div class="section-heading center">
-        <p class="section-tag">Skills</p>
-        <h2>AWS Cloud &amp; DevOps Technologies</h2>
-      </div>
+                    <p class="hero-subtitle">
+                        Building scalable, automated and resilient AWS infrastructure.
+                    </p>
 
-      <div class="skills-grid">
-        <div class="skill-card interactive">
-          <h3>Cloud Engineering</h3>
-          <div class="skill-tags">
-            <span>AWS</span>
-            <span>EC2</span>
-            <span>S3</span>
-            <span>IAM</span>
-            <span>VPC</span>
-            <span>RDS</span>
-            <span>Lambda</span>
-          </div>
-        </div>
 
-        <div class="skill-card interactive">
-          <h3>CI/CD &amp; Automation</h3>
-          <div class="skill-tags">
-            <span>Jenkins</span>
-            <span>GitHub Actions</span>
-            <span>CI/CD</span>
-            <span>Git</span>
-            <span>GitHub</span>
-          </div>
-        </div>
+                    <p class="hero-description">
+                        Cloud &amp; DevOps Engineer with hands-on experience
+                        architecting, automating, deploying and troubleshooting
+                        AWS infrastructure and containerized application environments.
+                        Strong background in Infrastructure as Code, CI/CD automation,
+                        Docker, Kubernetes, cloud networking, IAM and observability.
+                    </p>
 
-        <div class="skill-card interactive">
-          <h3>Containers &amp; Kubernetes</h3>
-          <div class="skill-tags">
-            <span>Docker</span>
-            <span>Kubernetes</span>
-            <span>ECS</span>
-            <span>ECR</span>
-          </div>
-        </div>
 
-        <div class="skill-card interactive">
-          <h3>Infrastructure as Code</h3>
-          <div class="skill-tags">
-            <span>Terraform</span>
-            <span>Ansible</span>
-            <span>Automation</span>
-          </div>
-        </div>
+                    <div class="hero-buttons">
 
-        <div class="skill-card interactive">
-          <h3>Networking &amp; Security</h3>
-          <div class="skill-tags">
-            <span>VPC</span>
-            <span>Subnets</span>
-            <span>Route Tables</span>
-            <span>Security Groups</span>
-            <span>NAT Gateway</span>
-          </div>
-        </div>
+                        <a
+                            href="#projects"
+                            class="btn btn-primary"
+                        >
+                            View My Projects
+                        </a>
 
-        <div class="skill-card interactive">
-          <h3>Monitoring &amp; Operations</h3>
-          <div class="skill-tags">
-            <span>CloudWatch</span>
-            <span>Monitoring</span>
-            <span>Scalability</span>
-            <span>Performance</span>
-            <span>Troubleshooting</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+                        <a
+                            href="https://github.com/tee-tech83"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-secondary"
+                        >
+                            GitHub
+                        </a>
+
+                        <a
+                            href="#contact"
+                            class="btn btn-secondary"
+                        >
+                            Contact Me
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero-skills">
+
+                        <div class="hero-skill">
+                            <strong>
+                                AWS
+                            </strong>
+
+                            <span>
+                                Cloud Architecture
+                            </span>
+                        </div>
+
+
+                        <div class="hero-skill">
+                            <strong>
+                                Terraform
+                            </strong>
+
+                            <span>
+                                Infrastructure as Code
+                            </span>
+                        </div>
+
+
+                        <div class="hero-skill">
+                            <strong>
+                                CI/CD
+                            </strong>
+
+                            <span>
+                                Automation &amp; Delivery
+                            </span>
+                        </div>
+
+
+                        <div class="hero-skill">
+                            <strong>
+                                Kubernetes
+                            </strong>
+
+                            <span>
+                                Container Orchestration
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="portrait">
+
+                    <div class="portrait-frame">
+
+                        <img
+                            src="images/tee-felix.jpg"
+                            alt="Tunrayo Felix Olorunseyin"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
 
 
 
-  <section id="projects" class="section section-dark">
-    <div class="container">
-      <div class="section-heading center">
-        <p class="section-tag">Projects</p>
-        <h2>AWS &amp; DevOps Projects</h2>
-      </div>
+        <section
+            id="about"
+            class="section"
+        >
 
-      <div class="projects-grid">
-        <article class="project-card interactive">
-          <div class="project-image">
-            <div class="project-number">01</div>
-            <div class="project-image-label">AWS Migration</div>
-          </div>
+            <div class="container">
 
-          <div class="project-content">
-            <h3>AWS WordPress &amp; MySQL Migration Automation</h3>
+                <span class="eyebrow">
+                    About
+                </span>
+
+                <h2 class="section-title">
+                    AWS Cloud &amp; DevOps Engineer
+                </h2>
+
+                <p class="section-intro">
+                    I combine cloud architecture, automation, containerization,
+                    networking and continuous delivery to build repeatable and
+                    resilient AWS environments.
+                </p>
+
+
+                <div class="about-grid">
+
+
+                    <article class="about-card">
+
+                        <h3>
+                            Who I Am
+                        </h3>
+
+                        <p>
+                            I am a Cloud &amp; DevOps Engineer with hands-on
+                            experience architecting, automating, deploying and
+                            troubleshooting AWS infrastructure and containerized
+                            application environments.
+                        </p>
+
+                        <p>
+                            My technical background includes Infrastructure as
+                            Code, highly available AWS architectures, CI/CD
+                            automation, Docker, Amazon ECS, Kubernetes,
+                            Amazon EKS, Linux, networking, IAM and cloud
+                            observability.
+                        </p>
+
+                        <p>
+                            I build repeatable cloud environments using Terraform
+                            and Ansible and integrate GitHub Actions and Jenkins
+                            with AWS deployment workflows.
+                        </p>
+
+                    </article>
+
+
+                    <article class="about-card">
+
+                        <h3>
+                            What I Build
+                        </h3>
+
+                        <p>
+                            I have built multi-tier AWS environments with public
+                            and private subnets, EC2, Amazon RDS, S3, Security
+                            Groups, NAT Gateways and automated infrastructure
+                            provisioning.
+                        </p>
+
+                        <p>
+                            I have implemented highly available environments using
+                            Application Load Balancers, Launch Templates, Auto
+                            Scaling Groups and multiple Availability Zones.
+                        </p>
+
+                        <p>
+                            My container and deployment work includes Docker,
+                            Amazon ECR, Amazon ECS, Amazon EKS, Kubernetes,
+                            Helm, Jenkins and GitHub Actions.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section
+            id="skills"
+            class="section section-alt"
+        >
+
+            <div class="container">
+
+                <span class="eyebrow">
+                    Skills
+                </span>
+
+                <h2 class="section-title">
+                    AWS Cloud &amp; DevOps Technologies
+                </h2>
+
+                <p class="section-intro">
+                    Technologies and platforms I use to provision infrastructure,
+                    automate deployments, run containerized workloads and support
+                    reliable cloud operations.
+                </p>
+
+
+                <div class="skills-grid">
+
+
+                    <article class="skill-card">
+
+                        <h3>
+                            Cloud Engineering
+                        </h3>
+
+                        <div class="tags">
+
+                            <span class="tag">AWS</span>
+                            <span class="tag">EC2</span>
+                            <span class="tag">VPC</span>
+                            <span class="tag">ECS</span>
+                            <span class="tag">EKS</span>
+                            <span class="tag">ECR</span>
+                            <span class="tag">RDS</span>
+                            <span class="tag">S3</span>
+                            <span class="tag">IAM</span>
+                            <span class="tag">ALB</span>
+                            <span class="tag">Auto Scaling</span>
+                            <span class="tag">Multi-AZ</span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="skill-card">
+
+                        <h3>
+                            CI/CD &amp; Automation
+                        </h3>
+
+                        <div class="tags">
+
+                            <span class="tag">GitHub Actions</span>
+                            <span class="tag">Jenkins</span>
+                            <span class="tag">Ansible</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                            <span class="tag">AWS Automation</span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="skill-card">
+
+                        <h3>
+                            Containers &amp; Kubernetes
+                        </h3>
+
+                        <div class="tags">
+
+                            <span class="tag">Docker</span>
+                            <span class="tag">Kubernetes</span>
+                            <span class="tag">Amazon ECS</span>
+                            <span class="tag">Amazon EKS</span>
+                            <span class="tag">Amazon ECR</span>
+                            <span class="tag">Helm</span>
+                            <span class="tag">HPA</span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="skill-card">
+
+                        <h3>
+                            Infrastructure as Code
+                        </h3>
+
+                        <div class="tags">
+
+                            <span class="tag">Terraform</span>
+                            <span class="tag">Ansible</span>
+                            <span class="tag">Infrastructure Automation</span>
+                            <span class="tag">Repeatable Environments</span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="skill-card">
+
+                        <h3>
+                            Networking &amp; Security
+                        </h3>
+
+                        <div class="tags">
+
+                            <span class="tag">VPC</span>
+                            <span class="tag">Public Subnets</span>
+                            <span class="tag">Private Subnets</span>
+                            <span class="tag">NAT Gateway</span>
+                            <span class="tag">Routing</span>
+                            <span class="tag">Security Groups</span>
+                            <span class="tag">IAM</span>
+                            <span class="tag">OIDC</span>
+                            <span class="tag">DNS</span>
+                            <span class="tag">Least Privilege</span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="skill-card">
+
+                        <h3>
+                            Monitoring &amp; Operations
+                        </h3>
+
+                        <div class="tags">
+
+                            <span class="tag">CloudWatch</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Bash</span>
+                            <span class="tag">Logging</span>
+                            <span class="tag">Health Checks</span>
+                            <span class="tag">Scaling Metrics</span>
+                            <span class="tag">Troubleshooting</span>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section
+            id="experience"
+            class="section"
+        >
+
+            <div class="container">
+
+                <span class="eyebrow">
+                    Experience
+                </span>
+
+                <h2 class="section-title">
+                    Professional Experience
+                </h2>
+
+                <p class="section-intro">
+                    Hands-on cloud engineering and DevOps work covering AWS
+                    infrastructure, automation, CI/CD, containers, networking,
+                    monitoring and Kubernetes.
+                </p>
+
+
+                <div class="experience-list">
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-top">
+
+                            <div>
+
+                                <h3>
+                                    Cloud Engineer
+                                </h3>
+
+                                <div class="company">
+                                    Elite Horizon Global Resources
+                                </div>
+
+                            </div>
+
+                            <div class="date">
+                                2022 — 2026
+                            </div>
+
+                        </div>
+
+
+                        <ul>
+
+                            <li>
+                                Architected and deployed AWS cloud environments
+                                using Terraform, including VPCs, public/private
+                                subnets, routing, NAT Gateway, Security Groups,
+                                EC2, RDS and S3.
+                            </li>
+
+                            <li>
+                                Engineered highly available application
+                                infrastructure using Application Load Balancers,
+                                Launch Templates and Auto Scaling Groups across
+                                multiple Availability Zones.
+                            </li>
+
+                            <li>
+                                Automated infrastructure provisioning and
+                                server/application configuration using Terraform
+                                and Ansible.
+                            </li>
+
+                            <li>
+                                Built CI/CD workflows using GitHub Actions,
+                                Docker, Amazon ECR and Amazon ECS.
+                            </li>
+
+                            <li>
+                                Implemented IAM roles and least-privilege
+                                permissions, including secure OIDC-based AWS
+                                access.
+                            </li>
+
+                            <li>
+                                Configured CloudWatch monitoring, logging,
+                                health checks and scaling metrics.
+                            </li>
+
+                            <li>
+                                Deployed Amazon RDS-backed workloads and
+                                troubleshot networking, Security Groups,
+                                routing, database connectivity and application
+                                deployment issues.
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-top">
+
+                            <div>
+
+                                <h3>
+                                    DevOps Engineer
+                                </h3>
+
+                                <div class="company">
+                                    Regal Bablo Farms
+                                </div>
+
+                            </div>
+
+                            <div class="date">
+                                2020 — 2021
+                            </div>
+
+                        </div>
+
+
+                        <ul>
+
+                            <li>
+                                Designed and maintained Jenkins-based CI/CD
+                                pipelines to automate application build and
+                                deployment workflows.
+                            </li>
+
+                            <li>
+                                Provisioned AWS infrastructure using Terraform
+                                and automated Linux configuration and application
+                                deployment using Ansible.
+                            </li>
+
+                            <li>
+                                Containerized applications with Docker,
+                                published images to Amazon ECR and deployed
+                                workloads using Amazon ECS.
+                            </li>
+
+                            <li>
+                                Configured Application Load Balancers and Auto
+                                Scaling Groups to support scalable and highly
+                                available application infrastructure.
+                            </li>
+
+                            <li>
+                                Managed IAM permissions, Git/GitHub workflows,
+                                Jenkins credentials and AWS access required by
+                                CI/CD services and workloads.
+                            </li>
+
+                            <li>
+                                Implemented CloudWatch monitoring and logging
+                                and troubleshot CI/CD, Docker, Linux and AWS
+                                deployment issues.
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-top">
+
+                            <div>
+
+                                <h3>
+                                    Cloud &amp; DevOps Engineer — Production Builds
+                                </h3>
+
+                                <div class="company">
+                                    AWS Cloud &amp; DevOps Engineering Program
+                                </div>
+
+                            </div>
+
+                            <div class="date">
+                                2025 — 2026
+                            </div>
+
+                        </div>
+
+
+                        <ul>
+
+                            <li>
+                                Built and deployed an Amazon EKS environment
+                                using Kubernetes, Helm and AWS infrastructure
+                                services.
+                            </li>
+
+                            <li>
+                                Configured Kubernetes Horizontal Pod Autoscaler
+                                and performed load testing to validate automatic
+                                scaling under increased demand.
+                            </li>
+
+                            <li>
+                                Provisioned AWS networking and infrastructure
+                                using Terraform, including VPCs, subnets,
+                                routing and Security Groups.
+                            </li>
+
+                            <li>
+                                Implemented Kubernetes services and AWS load
+                                balancing to expose containerized workloads.
+                            </li>
+
+                            <li>
+                                Built Docker images and integrated Amazon ECR,
+                                ECS and EKS into container deployment workflows.
+                            </li>
+
+                            <li>
+                                Implemented GitHub Actions CI/CD automation and
+                                IAM/OIDC integration for secure AWS deployment
+                                access.
+                            </li>
+
+                            <li>
+                                Integrated CloudWatch monitoring and tested
+                                infrastructure resiliency, scaling behavior and
+                                workload availability.
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section
+            id="projects"
+            class="section section-alt"
+        >
+
+            <div class="container">
+
+                <span class="eyebrow">
+                    Projects
+                </span>
+
+                <h2 class="section-title">
+                    AWS &amp; DevOps Projects
+                </h2>
+
+                <p class="section-intro">
+                    Production-style infrastructure and automation projects
+                    covering cloud migration, high availability, CI/CD,
+                    containerization and Kubernetes.
+                </p>
+
+
+                <div class="project-list">
+
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            PROJECT 01
+                        </span>
+
+                        <h3>
+                            AWS Cloud Migration &amp; Infrastructure Automation
+                        </h3>
+
+                        <p class="project-tech">
+                            AWS VPC • EC2 • RDS • S3 • Terraform • Ansible
+                        </p>
+
+                        <p class="project-summary">
+                            Architected and automated a multi-tier AWS
+                            environment for a database-backed web workload.
+                        </p>
+
+                        <ul>
+
+                            <li>
+                                Provisioned VPC networking, public/private
+                                subnets, routing, NAT Gateway, EC2, RDS, S3
+                                and Security Groups using Terraform.
+                            </li>
+
+                            <li>
+                                Automated application and server configuration
+                                with Ansible.
+                            </li>
+
+                            <li>
+                                Implemented secure connectivity between the
+                                application and database tiers.
+                            </li>
+
+                            <li>
+                                Configured IAM and CloudWatch to support access
+                                control, monitoring and operational visibility.
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            PROJECT 02
+                        </span>
+
+                        <h3>
+                            High-Availability Multi-AZ Infrastructure
+                        </h3>
+
+                        <p class="project-tech">
+                            AWS VPC • ALB • Auto Scaling • CloudWatch • Terraform
+                        </p>
+
+                        <p class="project-summary">
+                            Engineered highly available AWS infrastructure with
+                            automated scaling and instance recovery.
+                        </p>
+
+                        <ul>
+
+                            <li>
+                                Provisioned multi-AZ networking and compute
+                                infrastructure using Terraform.
+                            </li>
+
+                            <li>
+                                Distributed application traffic through an
+                                Application Load Balancer.
+                            </li>
+
+                            <li>
+                                Implemented Launch Templates and Auto Scaling
+                                Groups.
+                            </li>
+
+                            <li>
+                                Configured CloudWatch-driven scaling policies.
+                            </li>
+
+                            <li>
+                                Validated resiliency through instance termination
+                                and automated replacement.
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            PROJECT 03
+                        </span>
+
+                        <h3>
+                            Containerized CI/CD &amp; Kubernetes Platform
+                        </h3>
+
+                        <p class="project-tech">
+                            Docker • ECR • ECS • EKS • Jenkins • GitHub Actions • Helm
+                        </p>
+
+                        <p class="project-summary">
+                            Engineered automated container delivery and
+                            orchestration workflows across Amazon ECS and EKS.
+                        </p>
+
+                        <ul>
+
+                            <li>
+                                Built Docker images and published versioned
+                                images to Amazon ECR.
+                            </li>
+
+                            <li>
+                                Implemented GitHub Actions and Jenkins pipelines
+                                for automated build and deployment workflows to
+                                AWS.
+                            </li>
+
+                            <li>
+                                Provisioned and operated Amazon EKS workloads
+                                using Kubernetes and Helm.
+                            </li>
+
+                            <li>
+                                Implemented Horizontal Pod Autoscaling and
+                                performed load testing to validate scaling
+                                behavior.
+                            </li>
+
+                            <li>
+                                Integrated AWS container services into automated
+                                application deployment workflows.
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section
+            id="education"
+            class="section"
+        >
+
+            <div class="container">
+
+                <span class="eyebrow">
+                    Education &amp; Certifications
+                </span>
+
+                <h2 class="section-title">
+                    Professional Development
+                </h2>
+
+                <p class="section-intro">
+                    Professional certification goals, academic education and
+                    intensive AWS Cloud &amp; DevOps technical training.
+                </p>
+
+
+                <div class="education-grid">
+
+
+                    <article class="education-card">
+
+                        <h3>
+                            AWS Certified Solutions Architect
+                        </h3>
+
+                        <p>
+                            Associate
+                        </p>
+
+                        <p class="status">
+                            In View
+                        </p>
+
+                    </article>
+
+
+                    <article class="education-card">
+
+                        <h3>
+                            AWS Certified DevOps Engineer
+                        </h3>
+
+                        <p>
+                            Professional
+                        </p>
+
+                        <p class="status">
+                            In View
+                        </p>
+
+                    </article>
+
+
+                    <article class="education-card">
+
+                        <h3>
+                            Certified Kubernetes Administrator
+                        </h3>
+
+                        <p>
+                            CKA
+                        </p>
+
+                        <p class="status">
+                            In View
+                        </p>
+
+                    </article>
+
+
+                    <article class="education-card">
+
+                        <h3>
+                            HashiCorp Certified
+                        </h3>
+
+                        <p>
+                            Terraform Associate
+                        </p>
+
+                        <p class="status">
+                            In View
+                        </p>
+
+                    </article>
+
+
+                    <article class="education-card">
+
+                        <h3>
+                            Bachelor of Science
+                        </h3>
+
+                        <p>
+                            Economics
+                        </p>
+
+                        <p>
+                            Lagos State University
+                        </p>
+
+                        <p>
+                            2003 — 2008
+                        </p>
+
+                    </article>
+
+
+                    <article class="education-card">
+
+                        <h3>
+                            AWS Cloud &amp; DevOps Engineering Program
+                        </h3>
+
+                        <p>
+                            Intensive Technical Training
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section
+            id="contact"
+            class="section"
+        >
+
+            <div class="container">
+
+                <div class="contact-card">
+
+                    <span class="eyebrow">
+                        Contact
+                    </span>
+
+                    <h2>
+                        Open to Opportunities
+                    </h2>
+
+                    <p>
+                        I am interested in opportunities where I can contribute
+                        to AWS cloud infrastructure, DevOps automation,
+                        Infrastructure as Code, CI/CD, containers and Kubernetes
+                        environments.
+                    </p>
+
+                    <p>
+                        McKinney, Texas
+                    </p>
+
+
+                    <div class="contact-buttons">
+
+                        <a
+                            href="mailto:tunrayofelix@proton.me"
+                            class="btn btn-primary"
+                        >
+                            Email Me
+                        </a>
+
+                        <a
+                            href="tel:+14172555158"
+                            class="btn btn-secondary"
+                        >
+                            Call Me
+                        </a>
+
+                        <a
+                            href="https://github.com/tee-tech83"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-secondary"
+                        >
+                            GitHub
+                        </a>
+
+                        <a
+                            href="https://teefelix.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-secondary"
+                        >
+                            teefelix.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <footer>
+
+        <div class="container">
+
             <p>
-              Migrated a WordPress application and MySQL database from on-premise
-              environments to AWS cloud platforms using VPC, EC2 and RDS while
-              automating infrastructure provisioning with Terraform and Ansible.
+                © 2026 Tunrayo Felix Olorunseyin.
+                AWS Cloud &amp; DevOps Engineer.
             </p>
 
-            <div class="project-tags">
-              <span>AWS</span>
-              <span>EC2</span>
-              <span>VPC</span>
-              <span>RDS</span>
-              <span>Terraform</span>
-              <span>Ansible</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card interactive">
-          <div class="project-image">
-            <div class="project-number">02</div>
-            <div class="project-image-label">Auto Scaling + ALB</div>
-          </div>
-
-          <div class="project-content">
-            <h3>Highly Available AWS Infrastructure with Auto Scaling</h3>
-            <p>
-              Built a highly available AWS architecture using Terraform with an
-              Application Load Balancer and Auto Scaling Groups to automatically
-              handle traffic spikes and maintain application availability.
-            </p>
-
-            <div class="project-tags">
-              <span>AWS</span>
-              <span>Terraform</span>
-              <span>Auto Scaling</span>
-              <span>ALB</span>
-              <span>High Availability</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card interactive">
-          <div class="project-image">
-            <div class="project-number">03</div>
-            <div class="project-image-label">GitHub Actions CI/CD</div>
-          </div>
-
-          <div class="project-content">
-            <h3>End-to-End CI/CD Pipeline with GitHub Actions, Docker &amp; AWS ECS</h3>
-            <p>
-              Built a complete CI/CD pipeline using GitHub Actions to build Docker
-              images, push them to Amazon ECR, and deploy containerized applications
-              to AWS ECS.
-            </p>
-
-            <div class="project-tags">
-              <span>GitHub Actions</span>
-              <span>Docker</span>
-              <span>ECR</span>
-              <span>ECS</span>
-              <span>CI/CD</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card interactive">
-          <div class="project-image">
-            <div class="project-number">04</div>
-            <div class="project-image-label">Jenkins Deployment</div>
-          </div>
-
-          <div class="project-content">
-            <h3>Full-Stack Application Deployment with Jenkins, Docker &amp; AWS</h3>
-            <p>
-              Deployed a full-stack application using Jenkins pipelines,
-              Docker containerization and AWS infrastructure to automate
-              application delivery and deployment workflows.
-            </p>
-
-            <div class="project-tags">
-              <span>Jenkins</span>
-              <span>Docker</span>
-              <span>AWS</span>
-              <span>CI/CD</span>
-              <span>Automation</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="contact-box interactive">
-        <p class="section-tag">Contact</p>
-        <h2>Open to Opportunities</h2>
-
-        <p class="contact-text">
-Actively seeking opportunities in AWS Cloud Engineering, DevOps Engineering, Cloud Operations, and Infrastructure Automation. I bring hands-on experience from real-world AWS and DevOps projects involving cloud migration, infrastructure automation, CI/CD pipelines, containerization, and Kubernetes orchestration.
-</p>
-
-        <div class="contact-buttons">
-          <a href="mailto:tunrayofelixo@gmail.com" class="btn btn-primary interactive">Email Me</a>
-          <a href="tel:4172555158" class="btn btn-secondary interactive">Call Me</a>
-          <a href="https://www.linkedin.com/in/tunrayo-felix-1918123b4/" target="_blank" class="btn btn-secondary interactive">LinkedIn</a>
-          <a href="https://github.com/tee-tech83" target="_blank" class="btn btn-secondary interactive">GitHub Portfolio</a>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <footer class="footer">
-    <div class="container footer-content">
-      <p>© 2026 Tunrayo Felix | AWS Cloud & DevOps Portfolio | Hosted on AWS EC2</p>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="script.js"></script>
+
 </body>
 </html>
